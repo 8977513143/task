@@ -1,0 +1,65 @@
+<!doctype html>
+    a{color:inherit;text-decoration:none}
+          </div>
+          <p class="muted" style="margin-top:8px">పిల్లల కోసం కథలు, పాటలు, నృత్యం మరియు ఆటలు.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" style="margin-top:18px">
+      <h2 style="margin:6px 0 12px;color:var(--accent)">Contact & Location</h2>
+      <div style="display:grid;grid-template-columns:1fr 320px;gap:18px">
+        <div class="hero-card">
+          <p style="margin:0 0 8px">Address: ISKCON Rajahmundry, Example Road, Rajahmundry, Andhra Pradesh</p>
+          <p style="margin:0 0 8px">Phone: +91 90000 00000</p>
+          <p style="margin:0 0 8px">Email: rajahmundry@iskcon.org</p>
+
+          <form onsubmit="event.preventDefault();alert('Thanks — form submission demo. Replace with your server API.');" style="margin-top:12px;display:flex;flex-direction:column;gap:8px">
+            <input placeholder="Your name" required style="padding:10px;border-radius:8px;border:1px solid #eee">
+            <input placeholder="Email" required style="padding:10px;border-radius:8px;border:1px solid #eee">
+            <textarea placeholder="Message / seva interest" required style="padding:10px;border-radius:8px;border:1px solid #eee;min-height:80px"></textarea>
+            <button class="cta" style="border:none;cursor:pointer">Send message</button>
+          </form>
+        </div>
+
+        <!-- Small static map (replace with your Google Maps iframe if you have a key) -->
+        <div style="border-radius:12px;overflow:hidden;box-shadow:0 10px 30px rgba(0,0,0,0.06)">
+          <img alt="map placeholder" src="https://images.unsplash.com/photo-1503416997304-1a7b9b7a7b2a?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&s=000" style="height:100%;width:100%;object-fit:cover;display:block">
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
+        <div>
+          <strong>ISKCON Rajahmundry</strong>
+          <div style="font-size:13px;color:var(--muted)">All rights reserved © <span id="year"></span></div>
+        </div>
+        <div style="font-size:13px;color:var(--muted)">Built with ❤️ for the community</div>
+      </div>
+    </footer>
+  </main>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Image replacement hint for users who want to use local photos:
+    // 1) Create an "images" folder next to this HTML file.
+    // 2) Add your photos there (e.g. images/photo1.jpg).
+    // 3) Replace the src attributes above with "images/photo1.jpg" etc.
+
+    // Optional: simple lightbox for gallery
+    document.querySelectorAll('.gallery .item img').forEach(img => {
+      img.style.cursor = 'zoom-in';
+      img.addEventListener('click', () => {
+        const overlay = document.createElement('div');
+        overlay.style.position='fixed';overlay.style.inset=0;overlay.style.background='rgba(0,0,0,0.8)';overlay.style.display='flex';overlay.style.alignItems='center';overlay.style.justifyContent='center';overlay.style.zIndex=9999;
+        const large = document.createElement('img');large.src = img.src;large.style.maxWidth='95%';large.style.maxHeight='95%';large.style.boxShadow='0 20px 60px rgba(0,0,0,0.6)';large.style.borderRadius='8px';
+        overlay.appendChild(large);
+        overlay.addEventListener('click', () => overlay.remove());
+        document.body.appendChild(overlay);
+      });
+    });
+  </script>
+</body>
+</html>
